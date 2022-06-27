@@ -1,5 +1,5 @@
 
-import math
+from math import acos, cos, degrees, radians, sin, sqrt
 
 class Complex:
 
@@ -17,7 +17,7 @@ class Complex:
             self.imaginary = imaginary
 
         # finding the magnitude of this complex number
-        self.absValue = math.sqrt((self.real ** 2) + (self.imaginary ** 2))
+        self.absValue = sqrt((self.real ** 2) + (self.imaginary ** 2))
     
     # supporting the addition operation
 
@@ -114,7 +114,7 @@ class Complex:
         k = self.absValue  
        
         # determining the angle associated with the complex number
-        x = math.degrees(math.acos(self.real/k))
+        x = degrees(acos(self.real/k))
 
         # since square rots is basically having the angle 
         x /= value 
@@ -123,8 +123,8 @@ class Complex:
         r = k**(1/float(value)) 
 
         # determining the real and imaginary parts of the root
-        revReal = r*math.cos(math.radians(x)) 
-        revImaginary = r*math.sin(math.radians(x))
+        revReal = r*cos(radians(x)) 
+        revImaginary = r*sin(radians(x))
 
         return Complex(revReal, revImaginary)
     

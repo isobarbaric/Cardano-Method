@@ -1,5 +1,5 @@
 
-from complex import Complex
+from .complex import Complex
 from math import sqrt
 
 class CubicEquation:
