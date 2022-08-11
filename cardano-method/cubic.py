@@ -1,5 +1,5 @@
 
-from .complex import __Complex
+from .complex import _Complex
 from math import sqrt
 
 class CubicEquation:
@@ -37,7 +37,7 @@ class CubicEquation:
         # assigning the results of the  
         self.coefficients, self.__H, self.__G, self.__shift = [[a_0, a_1, a_2, a_3].copy(), H, G, shift]
 
-    @staticmethod
+    @classmethod
     def __quadratic(a, b, c):
         # determining the roots of a quadratic equation given the coefficients a, b, c
 
@@ -45,22 +45,24 @@ class CubicEquation:
 
     def __cardanoMethod(self):
         # finding u, v from Cardano's Method using a call to the static quadratic method
-        u, v = CubicEquation.__quadratic(__Complex(1), __Complex(self.__G), __Complex(-(self.__H ** 3))) 
+        u, v = CubicEquation.__quadratic(_Complex(1), _Complex(self.__G), _Complex(-(self.__H ** 3))) 
 
         # determining the first partial root
         first = u.root(3)
 
         # determining the second partial root
-        second = __Complex(-self.__H)/u.root(3)
+        second = _Complex(-self.__H)/u.root(3)
 
         # getting the values of the two constants omega and omegaSq
-        omega, omegaSq = [round(i) for i in CubicEquation.quadratic(__Complex(1), __Complex(1), __Complex(1))]
+        omega, omegaSq = [round(i) for i in CubicEquation.__quadratic(_Complex(1), _Complex(1), _Complex(1))]
 
         # determining the roots using the constants determined
         withoutShift = [first+second, omega*first+omegaSq*second, omegaSq*first+omega*second]
        
         # using list-comprehension to perform the necessary shift
-        answers = [round(i-__Complex(self.__shift)) for i in withoutShift]
+        answers = [round(i-_Complex(self.__shift)) for i in withoutShift]
+
+        # cast objects to cmath's complex type
 
         return answers 
 
