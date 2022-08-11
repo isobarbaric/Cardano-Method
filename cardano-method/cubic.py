@@ -1,5 +1,5 @@
 
-from .complex import _Complex
+from complex import _Complex
 from math import sqrt
 
 class CubicEquation:
@@ -37,7 +37,7 @@ class CubicEquation:
         # assigning the results of the  
         self.coefficients, self.__H, self.__G, self.__shift = [[a_0, a_1, a_2, a_3].copy(), H, G, shift]
 
-    @classmethod
+    @staticmethod
     def __quadratic(a, b, c):
         # determining the roots of a quadratic equation given the coefficients a, b, c
 
@@ -63,6 +63,7 @@ class CubicEquation:
         answers = [round(i-_Complex(self.__shift)) for i in withoutShift]
 
         # cast objects to cmath's complex type
+        answers = [complex(num.real, num.imaginary) for num in answers]
 
         return answers 
 

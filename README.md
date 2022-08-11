@@ -7,9 +7,9 @@ A fast, reliable Python library to solve cubic equations of all kinds. You can t
 
 ## How It Works
 
-`cardano-method` implements Gerolamo Cardano's famous method of solving cubic equations - 'Cardano Method'. Separated amongst various stages, this library **mirrors the steps described as Cardano's Method**.
+`cardano-method` implements Gerolamo Cardano's famous method of solving cubic equations - 'Cardano's Method'. Separated amongst various stages, this library **mirrors the steps described in Cardano's Method**.
 
-## Why Use Cardano's Method
+## Why Use `cardano-method`
 
 ### Fast Results
 
@@ -17,7 +17,7 @@ Many profanity detection libraries use a hard-coded list of bad words to detect 
 
 A simple example for which `profanity-check` is better is the phrase *"You cocksucker"* - `profanity` thinks this is clean because it doesn't have *"cocksucker"* in its wordlist.
 
-### Fast Results
+### Accuracy
 
 Other libraries like [profanity-filter](https://github.com/rominf/profanity-filter) use more sophisticated methods that are much more accurate but at the cost of performance. A benchmark (performed December 2018 on a new 2018 Macbook Pro) using [a Kaggle dataset of Wikipedia comments](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/data) yielded roughly the following results:
 
@@ -50,31 +50,43 @@ $ pip install cardano-method
 ## Usage
 
 ```python
-from profanity_check import CubicEquation
-
-predict(['predict() takes an array and returns a 1 for each string if it is offensive, else 0.'])
-# [0]
-
 from cardano_method import CubicEquation
 
 a = CubicEquation([1, 3, 4, 4])
 sol = a.solve()
 
 print(sol)
-# [-2.0, -0.5+1.322875i, -0.5-1.322875i]
+# [(-2+0j), (-0.5+1.322875j), (-0.5-1.322875j)]
 ```
 
-Note that both `solve()` return [`complex`](https://docs.python.org/3/library/cmath.html#module-cmath) objects.
+Note that `solve()` returns a list of [`complex`](https://docs.python.org/3/library/cmath.html#module-cmath) objects.
 
 ## More on How/Why It Works
 
 ### How
 
-Special thanks to the authors of the datasets used in this project. `profanity-check` was trained on a combined dataset from 2 sources:
-- [t-davidson/hate-speech-and-offensive-language](https://github.com/t-davidson/hate-speech-and-offensive-language/tree/master/data), used in their paper *Automated Hate Speech Detection and the Problem of Offensive Language*
-- the [Toxic Comment Classification Challenge](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/data) on Kaggle.
+<!-- definition of depressed cubic equation (mention that this is a specific case of the generalized idea of a depressed polynomial) -->
 
-`profanity-check` relies heavily on the excellent [`scikit-learn`](https://scikit-learn.org/) library. It's mostly powered by `scikit-learn` classes [`CountVectorizer`](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html), [`LinearSVC`](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html), and [`CalibratedClassifierCV`](https://scikit-learn.org/stable/modules/generated/sklearn.calibration.CalibratedClassifierCV.html). It uses a [Bag-of-words model](https://en.wikipedia.org/wiki/Bag-of-words_model) to vectorize input strings before feeding them to a linear classifier.
+Cardano's Method is a multi-step process that allows 
+
+#### Depression of the Cubic Equation
+
+$$p(x) = \sum_{i=0}^3 a_ix^i = a_3x^3 + a_2x_2 + a_1x_1 + a_0$$
+
+$$p(x) = a(x-\alpha)(x-\beta)(x-\gamma)$$
+
+Notice how $p\left(x-\frac{a_2}{3a_3}\right) = q(x)$! Substituting in  $q$ in terms of $p$ and its coefficients! Making the substitution and simplifying, we get
+
+$$p(x) = a_3x^3 + a_2x^2 + a_1x + a_0$$
+
+$$\Rightarrow p\left(x-\frac{a_2}{3a_3}\right) = q(x) = a_3x^3 + x\left(a_1-\frac{a_2^2}{3a_3}\right) + \left[\frac{2a_2^3}{27a_3^2} - \frac{a_1a_2}{3a_3} + a_0\right]$$
+
+#### dsfdf
+
+Then, after standardizing the coefficients to 1 and ['a bit more math and definitions'](), we arrive at the solutions to the given cubic equation:
+
+$$\Bigg \{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}} - \frac{H}{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}} - \frac{a_2}{3a_3},  \sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}\omega - \frac{H\omega^2}{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}} - \frac{a_2}{3a_3}, \\ 
+\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}\omega^2 - \frac{H\omega}{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}} - \frac{a_2}{3a_3}\Bigg \}$$
 
 ### Why
 
