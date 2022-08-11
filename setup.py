@@ -1,9 +1,8 @@
 from setuptools import setup, find_packages
-import codecs
-import os
 
 VERSION = '0.0.1'
-DESCRIPTION = ''
+DESCRIPTION = "A basic cubic equation solver"
+LONG_DESCRIPTION = "An implementation of Cardano's Method of solving cubic equations"
 
 setup(
     name="CardanoMethod",
@@ -13,11 +12,10 @@ setup(
     description=DESCRIPTION,
     packages=find_packages(),
     install_requires=[],
-    keywords=['python', 'math', 'cubic', 'equation', 'algebra', 'cardano' stream', 'sockets'],
+    keywords=['algebra', 'cardano', 'cardano-method', 'coefficients', 'complex', 'complex numbers', 'cubic', 'cubic equation', 'depressed cubic', 'equation', 'imaginary', 'method', 'polynomial', 'quadratic equation', 'real', 'roots', 'square root', 'zeroes'],
     classifiers=[
-        "Development Status :: 1 - Planning",
-        "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
+        "Topic :: Scientific/Engineering :: Mathematics",
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",

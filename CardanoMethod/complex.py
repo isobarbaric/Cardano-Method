@@ -1,7 +1,7 @@
 
 from math import acos, cos, degrees, radians, sin, sqrt
 
-class Complex:
+class __Complex:
 
     # constructor
 
@@ -28,7 +28,7 @@ class Complex:
         # determining the imaginary part of the new complex number
         imaginaryPart = self.imaginary + other.imaginary 
 
-        return Complex(realPart, imaginaryPart)
+        return __Complex(realPart, imaginaryPart)
    
     # supporting the subtraction operation
 
@@ -39,7 +39,7 @@ class Complex:
         # determining the imaginary part of the new complex number
         imaginaryPart = self.imaginary - other.imaginary 
         
-        return Complex(realPart, imaginaryPart)
+        return __Complex(realPart, imaginaryPart)
 
     # supporting the multiplication operation (Complex * something)
 
@@ -47,7 +47,7 @@ class Complex:
         if isinstance(other, (int, float)):
             # multiplying a complex number with a numerical number (integer or float)
 
-            return Complex(self.real*other, self.imaginary*other)
+            return __Complex(self.real*other, self.imaginary*other)
         else:
             # multiplying a complex number with another complex number
 
@@ -57,7 +57,7 @@ class Complex:
             # determining the imaginary part of the new complex number
             imaginaryPart = self.real*other.imaginary + self.imaginary*other.real
 
-            return Complex(realPart, imaginaryPart)
+            return __Complex(realPart, imaginaryPart)
    
     # cont. supporting multiplication operation (something * Complex)
 
@@ -69,12 +69,12 @@ class Complex:
 
     def __truediv__(self, other):
         # determining the numerator of the new complex number
-        numerator = self*Complex(other.real, -1*other.imaginary)
+        numerator = self*__Complex(other.real, -1*other.imaginary)
 
         # determining the denominator of the new complex number
         denominator = (other.real ** 2) + (other.imaginary ** 2)
 
-        return Complex(numerator.real/denominator, numerator.imaginary/denominator)
+        return __Complex(numerator.real/denominator, numerator.imaginary/denominator)
 
     # supporting exponentation
 
@@ -85,7 +85,7 @@ class Complex:
         
         if (number == 0):
             # if the exponent is zero, then return the integer 1
-            return Complex(1, 0)
+            return __Complex(1, 0)
         else:
             # if the exponent is non-zero and > 0, perform exponentiation
             currentNumber = self
@@ -105,7 +105,7 @@ class Complex:
         # determining the rounded imaginary pary of the complex number
         revImaginary = round(self.imaginary, numDigits)
 
-        return Complex(revReal, revImaginary)
+        return __Complex(revReal, revImaginary)
 
     def root(self, value=2.0):
         # using DeMoivre's Theorem to compute the 'value-th' root of the Complex number
@@ -126,7 +126,7 @@ class Complex:
         revReal = r*cos(radians(x)) 
         revImaginary = r*sin(radians(x))
 
-        return Complex(revReal, revImaginary)
+        return __Complex(revReal, revImaginary)
     
     # class behavior methods
     
