@@ -3,7 +3,7 @@
 
 [![release](https://img.shields.io/badge/dynamic/json.svg?label=release&url=https://pypi.org/pypi/cardanomethod/json&query=%24.info.version&colorB=blue)](https://pypi.org/project/CardanoMethod/)
 
-A fast, reliable Python library to solve cubic equations of all kinds. You can test out `cardano-method` [in your browser](https://replit.com/@Vndom/cardano-method-playground?v=1#main.py).
+A fast, reliable Python library to solve cubic equations of all kinds. You can test out `cardano-method` [in your browser](https://replit.com/@Vndom/CardanoMethod-Playground#main.py).
 
 ## How It Works
 
