@@ -1,11 +1,10 @@
 
-from math import acos, cos, degrees, radians, sin, sqrt
+from math import *
+from typing import Union
 
 class _Complex:
 
-    # constructor
-
-    def __init__(self, real, imaginary=None):
+    def __init__(self, real, imaginary = None):
         # assigning the real part of this complex number to a relevant parameter
         self.real = real
 
@@ -18,32 +17,32 @@ class _Complex:
 
         # finding the magnitude of this complex number
         self.absValue = sqrt((self.real ** 2) + (self.imaginary ** 2))
-    
+
     # supporting the addition operation
 
     def __add__(self, other):
         # determining the real part of the new complex number
         realPart = self.real + other.real
-        
+
         # determining the imaginary part of the new complex number
-        imaginaryPart = self.imaginary + other.imaginary 
+        imaginaryPart = self.imaginary + other.imaginary
 
         return _Complex(realPart, imaginaryPart)
-   
+
     # supporting the subtraction operation
 
     def __sub__(self, other):
         # determining the real part of the new complex number
         realPart = self.real - other.real
-        
+
         # determining the imaginary part of the new complex number
-        imaginaryPart = self.imaginary - other.imaginary 
-        
+        imaginaryPart = self.imaginary - other.imaginary
+
         return _Complex(realPart, imaginaryPart)
 
     # supporting the multiplication operation (Complex * something)
 
-    def __mul__(self, other):
+    def __mul__(self, other: Union[int, float]):
         if isinstance(other, (int, float)):
             # multiplying a complex number with a numerical number (integer or float)
 
@@ -58,10 +57,10 @@ class _Complex:
             imaginaryPart = self.real*other.imaginary + self.imaginary*other.real
 
             return _Complex(realPart, imaginaryPart)
-   
+
     # cont. supporting multiplication operation (something * Complex)
 
-    def __rmul__(self, other): 
+    def __rmul__(self, other: Union[int, float]):
         # calling the other multiplication method to allow multiplication
         return self.__mul__(other)
 
@@ -82,7 +81,7 @@ class _Complex:
         if number < 0:
             # returning none if the pre-condition is not met
             return None
-        
+
         if (number == 0):
             # if the exponent is zero, then return the integer 1
             return _Complex(1, 0)
@@ -109,34 +108,37 @@ class _Complex:
 
     def root(self, value=2.0):
         # using DeMoivre's Theorem to compute the 'value-th' root of the Complex number
-    
+
         # determining a 'k' value as sin x = a/k, cos x = b/k
-        k = self.absValue  
-       
+        k = self.absValue
+
+        if k == 0:
+            return _Complex(0, 0)
+
         # determining the angle associated with the complex number
         x = degrees(acos(self.real/k))
 
-        # since square rots is basically having the angle 
-        x /= value 
+        # since square rots is basically having the angle
+        x /= value
 
-        # to get the cube root of the magnitude of the Complex number 
-        r = k**(1/float(value)) 
+        # to get the cube root of the magnitude of the Complex number
+        r = k**(1/float(value))
 
         # determining the real and imaginary parts of the root
-        revReal = r*cos(radians(x)) 
+        revReal = r*cos(radians(x))
         revImaginary = r*sin(radians(x))
 
         return _Complex(revReal, revImaginary)
-    
+
     # class behavior methods
-    
+
     # supporting the less than operator
 
     def __lt__(self, other):
         return self.absValue < other.absValue
 
     # supporting the less than or equal to operator
-    
+
     def __le__(self, other):
         return self.absValue <= other.absValue
 
@@ -146,7 +148,7 @@ class _Complex:
         return self.absValue > other.absValue
 
     # supporting the greater than or equal to operator
-    
+
     def __ge__(self, other):
         return self.absValue >= other.absValue
 
@@ -160,7 +162,7 @@ class _Complex:
         if self.imaginary != other.imaginary:
             # if the imaginary parts are not equal, then both of the numbers cannot be equal
             return False
-        
+
         return True
 
     def __repr__(self):
