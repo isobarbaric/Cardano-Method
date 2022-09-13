@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
   long_description  =  f.read()
 
 setup(
-    name = "cardano_method",
+    name = "cardano-method",
     version = '1.0.0',
     author = "Krish Shah",
     author_email = "shahkrish2016@gmail.com",
