@@ -1,12 +1,12 @@
 
-from complex import _Complex
+from .complex import _Complex
 
 class CubicEquation:
     """Implementation of a modularized CubicEquation class to work with
     """
 
     __author__ = 'isobarbaric'
-    __version_info__ = (1, 0, 1)
+    __version_info__ = (1, 2, 0)
     __version__ = '.'.join(str(k) for k in __version_info__)
 
     def __init__(self, coefficients: list):

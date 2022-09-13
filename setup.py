@@ -6,7 +6,7 @@ with open("README.md", "r") as f:
 
 setup(
     name = "cardano-method",
-    version = '1.0.1',
+    version = '1.2.0',
     author = "Krish Shah",
     author_email = "shahkrish2016@gmail.com",
     description = "A basic cubic equation solver",
