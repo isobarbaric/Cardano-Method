@@ -5,12 +5,12 @@ with open("README.md", "r") as f:
   long_description  =  f.read()
 
 setup(
-    name = "cardano-method",
-    version = '1.0.1',
+    name = "cardano_method",
+    version = '1.0.0',
     author = "Krish Shah",
     author_email = "shahkrish2016@gmail.com",
     description = "A basic cubic equation solver",
-    long_description = "An implementation of Cardano's Method of solving cubic equations",
+    long_description = long_description,
     long_description_content_type = "text/markdown",
     url = "https://github.com/isobarbaric/CardanoMethod",
     packages = find_packages(),

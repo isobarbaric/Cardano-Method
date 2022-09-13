@@ -6,7 +6,7 @@ class CubicEquation:
     """
 
     __author__ = 'isobarbaric'
-    __version_info__ = (1, 0, 1)
+    __version_info__ = (1, 0, 0)
     __version__ = '.'.join(str(k) for k in __version_info__)
 
     def __init__(self, coefficients: list):
