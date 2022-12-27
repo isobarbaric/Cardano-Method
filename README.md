@@ -1,5 +1,10 @@
-
 # cardano-method
+
+- [cardano-method](#cardano-method)
+  - [How It Works](#how-it-works)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Underlying Mathematics](#underlying-mathematics)
 
 [![release](https://img.shields.io/badge/dynamic/json.svg?label=release&url=https://pypi.org/pypi/cardano-method/json&query=%24.info.version&colorB=blue)](https://pypi.org/project/cardano-method/)
 
@@ -31,10 +36,6 @@ Note that the ``answers`` attribute contains a list of [`complex`](https://docs.
 
 ## Underlying Mathematics
 
-- depressing polynomial
-- introduce H, G
-- solve quadratic for u, v -> show final roots
-
 Let's say the original cubic was $p(x)$:
 
 $$p(x) = \sum_{i=0}^3 a_ix^i = a_3x^3 + a_2x_2 + a_1x_1 + a_0$$
@@ -56,7 +57,7 @@ $$\Rightarrow x^3-3u^\frac{1}{3}v^\frac{1}{3}x-(u+v) = 0$$
 
 Equating the final polynomial to the original polynomial, we get $uv = -H^3$, $u+v = -G$. Solving for $u, v$ with a quadratic equation, we can go back to our original $x = u^{\frac{1}{3}} + v^{\frac{1}{3}}$ and find the following roots for our polynomial:
 
-$$\Bigg \{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}} - \frac{H}{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}} - \frac{a_2}{3a_3},  \sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}\omega - \frac{H\omega^2}{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}} - \frac{a_2}{3a_3}, \\ 
-\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}\omega^2 - \frac{H\omega}{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}} - \frac{a_2}{3a_3}\Bigg \}$$
+$$\{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}} - \frac{H}{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}} - \frac{a_2}{3a_3},  \sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}\omega - \frac{H\omega^2}{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}} - \frac{a_2}{3a_3}, \\ 
+\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}\omega^2 - \frac{H\omega}{\sqrt[3]{\frac{-G + \sqrt{G^2+4H^3}}{2}}} - \frac{a_2}{3a_3} \}$$
 
 If this looks complicated, don't worry - we agree too! The CardanoMethod package's ``CubicEquation`` handles all of this on the back-end and abstracts away all of the complex math.
