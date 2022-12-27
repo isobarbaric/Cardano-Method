@@ -1,12 +1,11 @@
 # cardano-method
 
-- [cardano-method](#cardano-method)
-  - [How It Works](#how-it-works)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Underlying Mathematics](#underlying-mathematics)
-
 [![release](https://img.shields.io/badge/dynamic/json.svg?label=release&url=https://pypi.org/pypi/cardano-method/json&query=%24.info.version&colorB=blue)](https://pypi.org/project/cardano-method/)
+
+- [How It Works](#how-it-works)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Underlying Mathematics](#underlying-mathematics)
 
 A fast, reliable Python library to solve cubic equations of all kinds. You can test out `cardano-method` [in your browser](https://replit.com/@Vndom/CardanoMethod-Playground#main.py).
 
