@@ -21,7 +21,6 @@ $ pip install cardano-method
 ```
 
 ## Usage
-
 ```python
 from cardano_method import CubicEquation
 
