@@ -24,7 +24,7 @@ class CubicEquation:
 
         # declaring and initializing dummy variables for future use
         self.__H, self.__G, self.__shift = None, None, None
-        self.answers = None
+        self.roots = None
 
         # calling the solve() method
         self.__solve()
@@ -114,7 +114,7 @@ class CubicEquation:
         self.__coefficients, self.__H, self.__G, self.__shift = CubicEquation.depress_cubic(self.__coefficients)
 
         # using Cardano's method to get the roots of the cubic equation
-        self.answers = CubicEquation.cardano_method(self.__H, self.__G, self.__shift)
+        self.roots = CubicEquation.cardano_method(self.__H, self.__G, self.__shift)
 
     def __repr__(self):
         info = ""

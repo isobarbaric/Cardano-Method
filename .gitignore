@@ -2,4 +2,4 @@ dist/
 build
 **/.DS_Store
 cardano_method.egg-info/
-cardano_method/test.py
+test.py
