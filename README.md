@@ -2,12 +2,13 @@
 
 [![release](https://img.shields.io/badge/dynamic/json.svg?label=release&url=https://pypi.org/pypi/cardano-method/json&query=%24.info.version&colorB=blue)](https://pypi.org/project/cardano-method/)
 
-- [How It Works](#how-it-works)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Underlying Mathematics](#underlying-mathematics)
-
 A fast, reliable Python library to solve cubic equations of all kinds. You can test out `cardano-method` [in your browser](https://replit.com/@Vndom/CardanoMethod-Playground#main.py).
+
+- [cardano-method](#cardano-method)
+  - [How It Works](#how-it-works)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Underlying Mathematics](#underlying-mathematics)
 
 ## How It Works
 
@@ -46,7 +47,7 @@ $$\Rightarrow p\left(x-\frac{a_2}{3a_3}\right) = q(x) = a_3x^3 + x\left(a_1-\fra
 
 Notice how the the $x^2$ term is absent from the expansion, i.e. the coefficient of $x^2$ is 0.
 
-From here, to simplify things a bit, let's introduce some variables:
+From here, to simplify things a bit, let's introduce some variables: (after dividing away to leave a coefficient of 1)
 $$3H = \frac{\left(a_1-\frac{a_2^2}{3a_3}\right)}{a_3} \text{ and } G = \frac{\left[\frac{2a_2^3}{27a_3^2} - \frac{a_1a_2}{3a_3} + a_0\right]}{a_3}$$
 
 Here, we make an interesting construction. Assume some arbitrary $x$ is a root of $q$. Then, let $x = u^{\frac{1}{3}} + v^{\frac{1}{3}}$. Attempting to recreate the original polynomial with this root:
