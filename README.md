@@ -4,11 +4,10 @@
 
 A fast, reliable Python library to solve cubic equations of all kinds. You can test out `cardano-method` [in your browser](https://replit.com/@Vndom/CardanoMethod-Playground#main.py).
 
-- [cardano-method](#cardano-method)
-  - [How It Works](#how-it-works)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Underlying Mathematics](#underlying-mathematics)
+- [How It Works](#how-it-works)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Underlying Mathematics](#underlying-mathematics)
 
 ## How It Works
 
